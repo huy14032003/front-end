@@ -28,4 +28,4 @@ git push origin firstname-lastname
 - Click "compare across forks"
 - Lựa chọn nhánh
 - Create pull request
-Done
+Done oke
