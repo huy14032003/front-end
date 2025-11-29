@@ -1,11 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    
+    <link href="bootstrap-5.3.8-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* 1. Thiết lập khung cứng full màn hình */
+        body, html { 
+            height: 100%; 
+            margin: 0; 
+            overflow: hidden; /* Cấm cuộn lung tung */
+        }
+
+        /* 2. Màu nền đoạn chat (Vàng nhạt giống ảnh) */
+        .bg-chat { 
+            background-color: #fff9e6; 
+        }
+
+        /* 3. Class quan trọng: Tạo vùng cuộn riêng cho tin nhắn */
+        .vung-cuon { 
+            flex-grow: 1;      /* Tự động giãn ra hết chỗ trống */
+            overflow-y: auto;  /* Tự hiện thanh cuộn khi tin nhắn dài */
+            height: 0;         /* Mẹo nhỏ giúp thanh cuộn hoạt động mượt trên Firefox/Chrome */
+        }
+    </style>
 </head>
 <body>
+<<<<<<< Updated upstream
   Hello linh
+=======
+
+    <div class="d-flex flex-column vh-100">
+
+        <nav class="navbar border-bottom shadow-sm">
+            <div class="container-fluid justify-content-center">
+                <span class="h5 m-0 fw-bold">NAV</span>
+            </div>
+        </nav>
+
+        <div class="container-fluid flex-grow-1 overflow-hidden">
+            <div class="row h-100">
+                
+                <div class="col-3 border-end d-flex flex-column p-0">
+                    <div class="p-3 border-bottom fw-bold">Đoạn chat</div>
+                    
+                    <div class="vung-cuon">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Item 1</li>
+                            <li class="list-group-item">Item 2</li>
+                            <li class="list-group-item">Item 3</li>
+                            <li class="list-group-item">...</li>
+                            <li class="list-group-item">Item 50</li>
+                            <li class="list-group-item" style="height: 500px"></li> 
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-9 d-flex flex-column p-0">
+                    <div class="p-3 border-bottom bg-warning fw-bold">UserName</div>
+
+                    <div class="vung-cuon bg-chat p-3">
+                        <div class="mb-2"><strong>Item 53:</strong> Xin chào!</div>
+                        <div class="mb-2"><strong>Item 54:</strong> Code chạy rồi nhé...</div>
+                        
+                        <div style="height: 1000px; border-left: 2px dashed #ccc; padding-left: 10px; margin: 20px 0;">
+                            (Kéo xuống dưới xem nào...)
+                        </div>
+
+                        <div class="mb-2"><strong>Item 75:</strong> Tin nhắn cuối cùng.</div>
+                    </div>
+
+                    <div class="p-3 border-top bg-white">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Nhập tin nhắn...">
+                            <button class="btn btn-primary">Gửi</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+>>>>>>> Stashed changes
 </body>
 </html>
