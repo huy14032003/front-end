@@ -6,86 +6,228 @@
     <title>Chat App</title>
     
     <link href="bootstrap-5.3.8-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <style>
-        /* 1. Thiết lập khung cứng full màn hình */
         body, html { 
             height: 100%; 
             margin: 0; 
             overflow: hidden; /* Cấm cuộn lung tung */
         }
 
-        /* 2. Màu nền đoạn chat (Vàng nhạt giống ảnh) */
         .bg-chat { 
             background-color: #fff9e6; 
         }
 
-        /* 3. Class quan trọng: Tạo vùng cuộn riêng cho tin nhắn */
         .vung-cuon { 
-            flex-grow: 1;      /* Tự động giãn ra hết chỗ trống */
-            overflow-y: auto;  /* Tự hiện thanh cuộn khi tin nhắn dài */
-            height: 0;         /* Mẹo nhỏ giúp thanh cuộn hoạt động mượt trên Firefox/Chrome */
+            flex-grow: 1;    
+            overflow-y: auto; 
+            height: 0;         
         }
+        .chat-messages {
+            flex-grow: 1;
+            overflow-y: auto; 
+            padding: 15px; 
+            /*display: flex; */
+            flex-direction: column; 
+            background-color: #fff9e6;
+            min-height: 0;
+            justify-content: flex-end;
+         }
+
+        .chat-body-container {
+            flex-grow: 1; 
+            overflow: hidden;;
+        }
+        .nav-icon {
+            width: 24px;
+            height: 24px;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: color 0.2s ease-in-out; 
+        }
+
+        .nav-icon use {
+            fill: #6c757d; 
+        }
+        .message-bubble-sent {
+            background-color: #a9caeb; 
+            color: black;
+            border-radius: 15px;
+            padding: 8px 12px;
+            max-width: 70%;
+            margin-left: auto;
+            margin-bottom: 8px;
+        }
+        .message-bubble-received {
+            background-color: #a9caeb; 
+            color: black;
+            border-radius: 15px;
+            padding: 8px 12px;
+            max-width: 70%;
+            margin-right: auto;
+            margin-bottom: 8px;
+        }
+        .chat-page {
+            background-color: white;
+        }
+
     </style>
 </head>
 <body>
-<<<<<<< Updated upstream
-  Hello linh
-=======
 
     <div class="d-flex flex-column vh-100">
 
         <nav class="navbar border-bottom shadow-sm">
-            <div class="container-fluid justify-content-center">
-                <span class="h5 m-0 fw-bold">NAV</span>
-            </div>
-        </nav>
+    <div class="container-fluid">
+        
+        <a class="text-primary fw-bold navbar-brand" href="#">MYCHAT</a>
+        
+        <div class="d-flex align-items-center mx-auto">
+            <svg class="nav-icon mx-3" width="24" height="24">
+                <use href="icons.svg#hugeicons-home"></use>
+            </svg>
+            
+            <svg class="nav-icon mx-3" width="24" height="24">
+                <use href="icons.svg#hugeicons-user-group"></use>
+            </svg>
+            
+            <svg class="nav-icon mx-3" width="24" height="24">
+                <use href="icons.svg#hugeicons-community"></use>
+            </svg>
+        </div>
+        
+        <div class="d-flex align-items-center">
+            <div class="rounded-circle bg-secondary text-white d-flex justify-content-center align-items-center" style="width: 32px; height: 32px; font-weight: bold;">L</div>
+        </div>
+        
+    </div>
+</nav>
 
         <div class="container-fluid flex-grow-1 overflow-hidden">
-            <div class="row h-100">
-                
-                <div class="col-3 border-end d-flex flex-column p-0">
-                    <div class="p-3 border-bottom fw-bold">Đoạn chat</div>
-                    
-                    <div class="vung-cuon">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Item 1</li>
-                            <li class="list-group-item">Item 2</li>
-                            <li class="list-group-item">Item 3</li>
-                            <li class="list-group-item">...</li>
-                            <li class="list-group-item">Item 50</li>
-                            <li class="list-group-item" style="height: 500px"></li> 
-                        </ul>
+            <div class="row h-100 g-0">
+                <div class="col-3 border-end d-flex flex-column bg-white">
+                <div class="p-3 border-bottom">
+                        <h2 class="h5 text-pink-primary fw-bold mb-3">Đoạn chat</h2>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control bg-light border-0 rounded-pill ps-0 fas fa-search" placeholder=" Search...">
+                        </div>
+        
+                        <div class="d-flex tabs-container mb-3 overflow-auto">
+                            <button class="btn btn-pink-primary-tab btn-sm me-2 active rounded-pill flex-shrink-0">Tất cả</button>
+                            <button class="btn btn-light btn-sm me-2 rounded-pill flex-shrink-0">Chưa đọc</button>
+                            <button class="btn btn-light btn-sm me-2 rounded-pill flex-shrink-0">Nhóm</button>
+                            <button class="btn btn-light btn-sm rounded-pill flex-shrink-0">Cộng đồng</button>
+                        </div>
+                        
+                        <div class="list-group list-group-flush">
+                            <div class="contact-item d-flex align-items-center p-3 active" style="background-color: #b1d4f7;">
+                                <div class="rounded-circle bg-secondary text-white d-flex justify-content-center align-items-center me-2" style="width: 40px; height: 40px;">PL</div>
+                                <div class="contact-info flex-grow-1">
+                                    <div class="fw-bold">Phạm Ngọc Linh</div>
+                                    <small class="text-muted text-truncate d-block">Ăn kẹo ko?</small>
+                                </div>
+                            </div>
+                            <div class="contact-item d-flex align-items-center p-3">
+                                <div class="rounded-circle bg-success text-white d-flex justify-content-center align-items-center me-2" style="width: 40px; height: 40px;">TL</div>
+                                <div class="contact-info flex-grow-1">
+                                    <div class="fw-bold">Trần Khánh Linh</div>
+                                    <small class="text-muted text-truncate d-block">Ok!</small>
+                                </div>
+                            </div> 
+                            <div class="contact-item d-flex align-items-center p-3">
+                                <div class="rounded-circle text-white d-flex justify-content-center align-items-center me-2" style="width: 40px; height: 40px; background-color: rgb(243, 111, 194)">TH</div>
+                                <div class="contact-info flex-grow-1">
+                                    <div class="fw-bold">Trần Quang Huy</div>
+                                    <small class="text-muted text-truncate d-block">Ok sếp!</small>
+                                </div>
+                            </div> 
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-9 d-flex flex-column p-0">
-                    <div class="p-3 border-bottom bg-warning fw-bold">UserName</div>
+                <div class="col-9 border-end d-flex flex-column bg-white">
 
-                    <div class="vung-cuon bg-chat p-3">
-                        <div class="mb-2"><strong>Item 53:</strong> Xin chào!</div>
-                        <div class="mb-2"><strong>Item 54:</strong> Code chạy rồi nhé...</div>
-                        
-                        <div style="height: 1000px; border-left: 2px dashed #ccc; padding-left: 10px; margin: 20px 0;">
-                            (Kéo xuống dưới xem nào...)
+                    <div class="p-3 border-bottom bg-white d-flex justify-content-between align-items-center shadow-sm">
+                        <div class="contact-info d-flex align-items-center">
+                            <div class="rounded-circle bg-secondary text-white d-flex justify-content-center align-items-center me-2" style="width: 40px; height: 40px;">PL</div>
+                            <div class="fw-bold fs-5">Phạm Ngọc Linh</div>
                         </div>
+                        <div class="d-flex flex-direction-row-reverse;">
+                            <svg class="nav-icon" width="24" height="24">
+                                <use href="icons.svg#hugeicons-call"></use>
+                            </svg>
 
-                        <div class="mb-2"><strong>Item 75:</strong> Tin nhắn cuối cùng.</div>
+                            <svg class="nav-icon" width="24" height="24">
+                                <use href="icons.svg#hugeicons-video"></use>
+                            </svg>
+                            <svg class="nav-icon " width="24" height="24" >
+                                <use href="icons.svg#hugeicons-info"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="chat-body-container d-flex flex-column flex-grow-1">
+                        <div class="chat-messages">
+
+                            <div class="d-flex w-100 justify-content-end">
+                            <div class="message-bubble-sent">Tin nhắn 1</div>
+                            </div>
+                            <div class="d-flex w-100">
+                                <div class="message-bubble-received">Tin nhắn 2</div>
+                            </div>
+                            <div class="d-flex w-100 justify-content-end">
+                                <div class="message-bubble-sent">Tin nhắn 3</div>
+                            </div>
+                            <div class="d-flex w-100">
+                                <div class="message-bubble-received">Tin nhắn 4</div>
+                            </div>
+                            <div class="d-flex w-100 justify-content-end">
+                                <div class="message-bubble-sent">Tin nhắn 5</div>
+                            </div>
+                            <div class="d-flex w-100">
+                                <div class="message-bubble-received">Tin nhắn 6</div>
+                            </div>
+                            <div class="d-flex w-100 justify-content-end">
+                                <div class="message-bubble-sent">Tin nhắn 7</div>
+                            </div>
+                            <div class="d-flex w-100">
+                                <div class="message-bubble-received">Tin nhắn 8</div>
+                            </div>
+                            <div class="d-flex w-100 justify-content-end">
+                                <div class="message-bubble-sent">Tin nhắn 9</div>
+                            </div>
+                            <div class="d-flex w-100">
+                                <div class="message-bubble-received">Tin nhắn 10</div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="p-3 border-top bg-white">
+                        
                         <div class="input-group">
+                            <div class="d-flex flex-direction-row-reverse;">
+                            <svg class="nav-icon" width="24" height="24">
+                                <use href="icons.svg#hugeicons-mic"></use>
+                            </svg>
+
+                            <svg class="nav-icon" width="24" height="24">
+                                <use href="icons.svg#hugeicons-image"></use>
+                            </svg>
+                            <svg class="nav-icon " width="24" height="24" >
+                                <use href="icons.svg#hugeicons-file"></use>
+                            </svg>
+                            <svg class="nav-icon " width="24" height="24" >
+                                <use href="icons.svg#hugeicons-like"></use>
+                            </svg>
+                        </div>
                             <input type="text" class="form-control" placeholder="Nhập tin nhắn...">
                             <button class="btn btn-primary">Gửi</button>
                         </div>
                     </div>
                 </div>
-
             </div>
-        </div>
-    </div>
+        </div>              
 
     <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
->>>>>>> Stashed changes
 </body>
 </html>
