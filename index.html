@@ -18,12 +18,6 @@
         .bg-chat { 
             background-color: #fff9e6; 
         }
-
-        .vung-cuon { 
-            flex-grow: 1;    
-            overflow-y: auto; 
-            height: 0;         
-        }
         .chat-messages {
             flex-grow: 1;
             overflow-y: auto; 
@@ -39,17 +33,7 @@
             flex-grow: 1; 
             overflow: hidden;;
         }
-        .nav-icon {
-            width: 24px;
-            height: 24px;
-            margin: 0 10px;
-            cursor: pointer;
-            transition: color 0.2s ease-in-out; 
-        }
 
-        .nav-icon use {
-            fill: #6c757d; 
-        }
         .message-bubble-sent {
             background-color: #a9caeb; 
             color: black;
@@ -79,38 +63,31 @@
     <div class="d-flex flex-column vh-100">
 
         <nav class="navbar border-bottom shadow-sm">
-    <div class="container-fluid">
+        <div class="container-fluid">
         
-        <a class="text-primary fw-bold navbar-brand" href="#">MYCHAT</a>
-        
-        <div class="d-flex align-items-center mx-auto">
-            <svg class="nav-icon mx-3" width="24" height="24">
-                <use href="icons.svg#hugeicons-home"></use>
-            </svg>
+            <a class="navbar-brand" style="color:rgb(240, 51, 114) ; font-weight: 900;">MYCHAT</a>
             
-            <svg class="nav-icon mx-3" width="24" height="24">
-                <use href="icons.svg#hugeicons-user-group"></use>
-            </svg>
+            <div class="d-flex align-items-center justify-content-between" style="width: 300px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from BoxIcons by Atisa - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M3 13h1v7c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7h1a1 1 0 0 0 .707-1.707l-9-9a1 1 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 13m9-8.586l6 6V15l.001 5H6v-9.586z"/><path fill="currentColor" d="M12 18c3.703 0 4.901-3.539 4.95-3.689l-1.9-.621c-.008.023-.781 2.31-3.05 2.31c-2.238 0-3.02-2.221-3.051-2.316l-1.899.627C7.099 14.461 8.297 18 12 18"/></svg>
+                
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256"><!-- Icon from Phosphor by Phosphor Icons - https://github.com/phosphor-icons/core/blob/main/LICENSE --><path fill="currentColor" d="m163.33 107l-48-32a6 6 0 0 0-9.33 5v64a6 6 0 0 0 9.33 5l48-32a6 6 0 0 0 0-10M118 132.79V91.21L149.18 112ZM216 42H40a14 14 0 0 0-14 14v112a14 14 0 0 0 14 14h176a14 14 0 0 0 14-14V56a14 14 0 0 0-14-14m2 126a2 2 0 0 1-2 2H40a2 2 0 0 1-2-2V56a2 2 0 0 1 2-2h176a2 2 0 0 1 2 2Zm12 40a6 6 0 0 1-6 6H32a6 6 0 0 1 0-12h192a6 6 0 0 1 6 6"/></svg>
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Iconoir by Luca Burgio - https://github.com/iconoir-icons/iconoir/blob/main/LICENSE --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 18v-1a5 5 0 0 1 5-5v0a5 5 0 0 1 5 5v1M1 18v-1a3 3 0 0 1 3-3v0m19 4v-1a3 3 0 0 0-3-3v0m-8-2a3 3 0 1 0 0-6a3 3 0 0 0 0 6m-8 2a2 2 0 1 0 0-4a2 2 0 0 0 0 4m16 0a2 2 0 1 0 0-4a2 2 0 0 0 0 4"/></svg>
+            </div>
             
-            <svg class="nav-icon mx-3" width="24" height="24">
-                <use href="icons.svg#hugeicons-community"></use>
-            </svg>
+            <div class="d-flex align-items-center">
+                <div class="rounded-circle bg-secondary text-white d-flex justify-content-center align-items-center" style="width: 32px; height: 32px; font-weight: bold;">L</div>
+            </div>
         </div>
-        
-        <div class="d-flex align-items-center">
-            <div class="rounded-circle bg-secondary text-white d-flex justify-content-center align-items-center" style="width: 32px; height: 32px; font-weight: bold;">L</div>
-        </div>
-        
-    </div>
-</nav>
+        </nav>
 
         <div class="container-fluid flex-grow-1 overflow-hidden">
             <div class="row h-100 g-0">
-                <div class="col-3 border-end d-flex flex-column bg-white">
-                <div class="p-3 border-bottom">
+                <div class="col-3 border-end d-flex flex-column bg-white h-100 p-3">
+                
                         <h2 class="h5 text-pink-primary fw-bold mb-3">Đoạn chat</h2>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control bg-light border-0 rounded-pill ps-0 fas fa-search" placeholder=" Search...">
+                            <input type="text" class="form-control bg-light border-0 rounded-pill ps-0 fas fa-search" placeholder=" Q Search...">
                         </div>
         
                         <div class="d-flex tabs-container mb-3 overflow-auto">
@@ -120,8 +97,8 @@
                             <button class="btn btn-light btn-sm rounded-pill flex-shrink-0">Cộng đồng</button>
                         </div>
                         
-                        <div class="list-group list-group-flush">
-                            <div class="contact-item d-flex align-items-center p-3 active" style="background-color: #b1d4f7;">
+                        <div class="list-group list-group-flush flex-grow-1 overflow-auto">
+                            <div class="contact-item d-flex align-items-center p-3 active rounded-4" style="background-color: #b1d4f7;">
                                 <div class="rounded-circle bg-secondary text-white d-flex justify-content-center align-items-center me-2" style="width: 40px; height: 40px;">PL</div>
                                 <div class="contact-info flex-grow-1">
                                     <div class="fw-bold">Phạm Ngọc Linh</div>
@@ -143,10 +120,10 @@
                                 </div>
                             </div> 
                         </div>
-                    </div>
+                    
                 </div>
 
-                <div class="col-9 border-end d-flex flex-column bg-white">
+                <div class="col-9 border-end d-flex flex-column bg-white h-100">
 
                     <div class="p-3 border-bottom bg-white d-flex justify-content-between align-items-center shadow-sm">
                         <div class="contact-info d-flex align-items-center">
@@ -154,16 +131,17 @@
                             <div class="fw-bold fs-5">Phạm Ngọc Linh</div>
                         </div>
                         <div class="d-flex flex-direction-row-reverse;">
-                            <svg class="nav-icon" width="24" height="24">
-                                <use href="icons.svg#hugeicons-call"></use>
-                            </svg>
-
-                            <svg class="nav-icon" width="24" height="24">
-                                <use href="icons.svg#hugeicons-video"></use>
-                            </svg>
-                            <svg class="nav-icon " width="24" height="24" >
-                                <use href="icons.svg#hugeicons-info"></use>
-                            </svg>
+                             <div class="rounded-circle bg-light d-flex justify-content-center align-items-center" style="width: 40px; height: 40px; color: rgb(240, 51, 114);">
+                            
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M6.007 3.407c1.68-1.68 4.516-1.552 5.686.544l.649 1.163c.763 1.368.438 3.095-.68 4.227a.63.63 0 0 0-.104.337c-.013.256.078.849.997 1.767c.918.918 1.51 1.01 1.767.997a.63.63 0 0 0 .337-.104c1.131-1.118 2.859-1.443 4.227-.68l1.163.65c2.096 1.17 2.224 4.004.544 5.685c-.899.898-2.093 1.697-3.498 1.75c-2.08.079-5.536-.459-8.958-3.88c-3.421-3.422-3.959-6.877-3.88-8.958c.053-1.405.852-2.6 1.75-3.498m4.376 1.275c-.6-1.074-2.21-1.32-3.315-.214c-.775.775-1.28 1.63-1.312 2.493c-.066 1.736.363 4.762 3.442 7.84c3.08 3.08 6.105 3.509 7.84 3.443c.863-.033 1.72-.537 2.494-1.312c1.106-1.106.86-2.716-.214-3.315l-1.163-.649c-.723-.403-1.74-.266-2.453.448c-.07.07-.516.486-1.307.524c-.81.04-1.791-.324-2.9-1.434c-1.111-1.11-1.475-2.091-1.435-2.902c.038-.791.455-1.237.524-1.307c.714-.713.851-1.729.448-2.452z" clip-rule="evenodd"/></svg>
+                             </div>
+                              <div class="rounded-circle bg-light d-flex justify-content-center align-items-center" style="width: 40px; height: 40px; color: rgb(240, 51, 114);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from WeUI Icon by WeUI - undefined --><path fill="currentColor" fill-rule="evenodd" d="M3.2 6.7v10.6h12.6V6.7zM3 5.5h13a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-11a1 1 0 0 1 1-1m16.2 7.923l2.6 2.08V8.497l-2.6 2.08zM18 10l3.375-2.7A1 1 0 0 1 23 8.08v7.84a1 1 0 0 1-1.625.78L18 14z"/></svg>
+                              </div>
+                               <div class="rounded-circle bg-light d-flex justify-content-center align-items-center" style="width: 40px; height: 40px; color: rgb(240, 51, 114);">
+                            
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Symbols Light by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="M12 16.5q.214 0 .357-.144T12.5 16v-4.5q0-.213-.144-.356T11.999 11t-.356.144t-.143.356V16q0 .213.144.356t.357.144M12 9.577q.262 0 .439-.177t.176-.438t-.177-.439T12 8.346t-.438.177t-.177.439t.177.438t.438.177M12.003 21q-1.867 0-3.51-.708q-1.643-.709-2.859-1.924t-1.925-2.856T3 12.003t.709-3.51Q4.417 6.85 5.63 5.634t2.857-1.925T11.997 3t3.51.709q1.643.708 2.859 1.922t1.925 2.857t.709 3.509t-.708 3.51t-1.924 2.859t-2.856 1.925t-3.509.709M12 20q3.35 0 5.675-2.325T20 12t-2.325-5.675T12 4T6.325 6.325T4 12t2.325 5.675T12 20m0-8"/></svg>
+                               </div>
                         </div>
                     </div>
                     <div class="chat-body-container d-flex flex-column flex-grow-1">
@@ -206,22 +184,23 @@
                         
                         <div class="input-group">
                             <div class="d-flex flex-direction-row-reverse;">
-                            <svg class="nav-icon" width="24" height="24">
-                                <use href="icons.svg#hugeicons-mic"></use>
-                            </svg>
-
-                            <svg class="nav-icon" width="24" height="24">
-                                <use href="icons.svg#hugeicons-image"></use>
-                            </svg>
-                            <svg class="nav-icon " width="24" height="24" >
-                                <use href="icons.svg#hugeicons-file"></use>
-                            </svg>
-                            <svg class="nav-icon " width="24" height="24" >
-                                <use href="icons.svg#hugeicons-like"></use>
-                            </svg>
+                            <div class="rounded-circle bg-light d-flex justify-content-center align-items-center" style="width: 40px; height: 40px; color: rgb(240, 51, 114);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 20 20"><!-- Icon from Pepicons Pencil by CyCraft - https://github.com/CyCraft/pepicons/blob/dev/LICENSE --><g fill="currentColor"><path fill-rule="evenodd" d="M7.75 4.25a2.25 2.25 0 0 1 4.5 0v3.5a2.25 2.25 0 0 1-4.5 0z" clip-rule="evenodd"/><path d="M10 17c-2.48 0-4-.217-4-1s1.52-1 4-1s4 .217 4 1s-1.52 1-4 1"/><path d="M9.5 12.5h1V16h-1z"/><path d="M14 7.5a.5.5 0 0 1 1 0v1.65c0 2.421-2.254 4.35-5 4.35s-5-1.929-5-4.35V7.5a.5.5 0 0 1 1 0v1.65c0 1.831 1.775 3.35 4 3.35s4-1.519 4-3.35z"/></g></svg>
+                            </div>
+                            <div class="rounded-circle bg-light d-flex justify-content-center align-items-center" style="width: 40px; height: 40px; color: rgb(240, 51, 114);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Myna UI Icons by Praveen Juge - https://github.com/praveenjuge/mynaui-icons/blob/main/LICENSE --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M6.5 8a2 2 0 1 0 4 0a2 2 0 0 0-4 0m14.427 1.99c-6.61-.908-12.31 4-11.927 10.51"/><path d="M3 13.066c2.78-.385 5.275.958 6.624 3.1"/><path d="M3 9.4c0-2.24 0-3.36.436-4.216a4 4 0 0 1 1.748-1.748C6.04 3 7.16 3 9.4 3h5.2c2.24 0 3.36 0 4.216.436a4 4 0 0 1 1.748 1.748C21 6.04 21 7.16 21 9.4v5.2c0 2.24 0 3.36-.436 4.216a4 4 0 0 1-1.748 1.748C17.96 21 16.84 21 14.6 21H9.4c-2.24 0-3.36 0-4.216-.436a4 4 0 0 1-1.748-1.748C3 17.96 3 16.84 3 14.6z"/></g></svg>
+                            </div>
+                            <div class="rounded-circle bg-light d-flex justify-content-center align-items-center" style="width: 40px; height: 40px; color: rgb(240, 51, 114);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 16 16"><!-- Icon from Bootstrap Icons by The Bootstrap Authors - https://github.com/twbs/icons/blob/main/LICENSE.md --><path fill="currentColor" fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2H9v-1h3a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM3.278 13.124a1.4 1.4 0 0 0-.14-.492a1.3 1.3 0 0 0-.314-.407a1.5 1.5 0 0 0-.48-.275a1.9 1.9 0 0 0-.636-.1q-.542 0-.926.229a1.5 1.5 0 0 0-.583.632a2.1 2.1 0 0 0-.199.95v.506q0 .408.105.745q.105.336.32.58q.213.243.533.377q.323.132.753.132q.402 0 .697-.111a1.29 1.29 0 0 0 .788-.77q.097-.261.097-.551v-.797H1.717v.589h.823v.255q0 .199-.09.363a.67.67 0 0 1-.273.264a1 1 0 0 1-.457.096a.87.87 0 0 1-.519-.146a.9.9 0 0 1-.305-.413a1.8 1.8 0 0 1-.096-.615v-.499q0-.547.234-.85q.237-.3.665-.301a1 1 0 0 1 .3.044q.136.044.236.126a.7.7 0 0 1 .17.19a.8.8 0 0 1 .097.25zm1.353 2.801v-3.999H3.84v4h.79Zm1.493-1.59v1.59h-.791v-3.999H7.88v.653H6.124v1.117h1.605v.638z"/></svg>
+                            </div>
+                            <div class="rounded-circle bg-light d-flex justify-content-center align-items-center" style="width: 40px; height: 40px; color: rgb(240, 51, 114);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from BoxIcons by Atisa - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M20 8h-5.612l1.123-3.367c.202-.608.1-1.282-.275-1.802S14.253 2 13.612 2H12c-.297 0-.578.132-.769.36L6.531 8H4c-1.103 0-2 .897-2 2v9c0 1.103.897 2 2 2h13.307a2.01 2.01 0 0 0 1.873-1.298l2.757-7.351A1 1 0 0 0 22 12v-2c0-1.103-.897-2-2-2M4 10h2v9H4zm16 1.819L17.307 19H8V9.362L12.468 4h1.146l-1.562 4.683A.998.998 0 0 0 13 10h7z"/></svg>
                         </div>
-                            <input type="text" class="form-control" placeholder="Nhập tin nhắn...">
-                            <button class="btn btn-primary">Gửi</button>
+                        </div>
+                            <input type="text" class="form-control rounded-4" placeholder="Nhập tin nhắn...">
+                            <div class="rounded-circle bg-light d-flex justify-content-center align-items-center" style="width: 40px; height: 40px; color: rgb(240, 51, 114);">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from IconaMoon by Dariush Habibpour - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m5 12l-.604-5.437C4.223 5.007 5.825 3.864 7.24 4.535l11.944 5.658c1.525.722 1.525 2.892 0 3.614L7.24 19.466c-1.415.67-3.017-.472-2.844-2.028zm0 0h7"/></svg>
+                            </div>
                         </div>
                     </div>
                 </div>
