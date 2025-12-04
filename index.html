@@ -1,11 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYCHAT App UI - Fixed</title>
+    <link href="bootstrap-5.3.8-dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /* --- Bố cục tổng thể (Quan trọng: Đảm bảo full height) --- */
+        html, body, .chat-container {
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Ngăn cuộn tổng thể */
+            background-color: #f8f9fa; /* Màu nền nhẹ cho toàn bộ app */
+        }
+        
+        /* Cột chat chính (Dùng Flexbox để chia 3 phần: Header, Body cuộn, Footer) */
+        .chat-column {
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* Đảm bảo cột chiếm 100% chiều cao */
+        }
+
+        /* --- Định dạng Icon SVG --- */
+        .icon-sm svg {
+            width: 20px;
+            height: 20px;
+            color: #6c757d; 
+            vertical-align: middle;
+            stroke-width: 1.5; 
+        }
+
+        /* Icon Gửi tin nhắn (Primary Color - Màu hồng) */
+        .icon-primary svg {
+            color: #f06292 !important; /* Màu hồng */
+            width: 24px;
+            height: 24px;
+        }
+        
+        /* Icon cuộn xuống (Arrow Down) */
+        .icon-scroll svg {
+            width: 28px;
+            height: 28px;
+            color: #6c757d;
+            stroke-width: 2.5; 
+        }
+
+        /* --- Vùng chat chính (Body) --- */
+        .chat-body-area {
+            flex-grow: 1; /* Quan trọng: Chiếm hết không gian còn lại */
+            overflow-y: auto; /* Cho phép cuộn tin nhắn */
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            
+            background-color: #fff; /* Nền trắng cho khu vực tin nhắn */
+        }
+
+        
+        /* --- Bong bóng tin nhắn --- */
+        .message-bubble-sent {
+            background-color: #f06292; /* Màu Hồng (Theo mẫu) */
+            color: white; /* Chữ trắng cho tin nhắn gửi đi */
+            border-radius: 15px;
+            padding: 8px 12px;
+            max-width: 70%;
+            margin-left: auto;
+            margin-bottom: 8px;
+        }
+        .message-bubble-received {
+            background-color: #e4e6eb; /* Màu Xám nhạt (Theo mẫu) */
+            color: black;
+            border-radius: 15px;
+            padding: 8px 12px;
+            max-width: 70%;
+            margin-right: auto;
+            margin-bottom: 8px;
+        }
+        
+        /* --- Sidebar Active Item (Mục đang chọn) --- */
+        .list-group-item.active {
+            background-color: #c9e2ff; /* Màu xanh nhạt hơn */
+            border-color: #c9e2ff;
+            color: #212529; /* Màu chữ đen */
+        }
+    </style>
 </head>
 <body>
-  Hello linh
+
+<div class="container-fluid chat-container">
+    <div class="row h-100">
+
+        <div class="col-md-4 col-lg-3 sidebar p-0 border-end d-flex flex-column bg-white">
+            
+            <div class="p-3 flex-shrink-0">
+                <h1 class="h5 fw-bold text-dark">MESSENGER</h1>
+
+            </div>
+
+            <div class="p-3 pt-0 flex-shrink-0">
+                <div class="input-group">
+                    <span class="input-group-text bg-white border-end-0 icon-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m17 17l4 4m-2-10a8 8 0 1 0-16 0a8 8 0 0 0 16 0"/></svg>
+                    </span>
+                    <input type="text" class="form-control border-start-0" placeholder="Search...">
+                </div>
+            </div>
+
+            <div class="d-flex px-3 pb-2 gap-3 small flex-shrink-0">
+                <a href="#" class="text-decoration-none text-primary fw-bold">Tất cả</a>
+                <a href="#" class="text-decoration-none text-secondary">Chưa đọc</a>
+                <a href="#" class="text-decoration-none text-secondary">Cộng đồng</a>
+            </div>
+
+            <div class="list-group list-group-flush flex-grow-1 overflow-auto">
+                
+                <a href="#" class="list-group-item list-group-item-action contact-item active p-3">
+                    <div class="d-flex w-100 align-items-center">
+                        <div class="me-3 flex-shrink-0">
+                            <span class="rounded-circle d-block text-center bg-primary text-white" style="width: 40px; height: 40px; line-height: 40px;">P</span>
+                        </div>
+                        <div class="flex-grow-1">
+                            <h6 class="mb-0 fw-bold">Pham Ngoc Linh</h6>
+                            <small class="text-truncate d-block text-dark">Ok nhe!</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div> 
+        
+        <div class="col-md-8 col-lg-9 chat-column p-0">
+            
+            <div class="d-flex justify-content-between align-items-center p-3 border-bottom flex-shrink-0 bg-white">
+                <h5 class="mb-0 fw-bold">Tran Quang Huy</h5>
+                <div class="d-flex gap-3 text-secondary fs-5 icon-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="m9.159 5.712l-.403-.906c-.263-.592-.395-.888-.592-1.115a2 2 0 0 0-.928-.603C6.949 3 6.625 3 5.976 3c-.948 0-1.422 0-1.82.182a2.12 2.12 0 0 0-1.061 1.169c-.143.413-.102.838-.02 1.689q1.31 13.575 14.886 14.885c.85.082 1.275.123 1.689-.02a2.12 2.12 0 0 0 1.168-1.06c.182-.399.182-.873.182-1.821c0-.649 0-.973-.088-1.26a2 2 0 0 0-.603-.928c-.226-.197-.523-.328-1.115-.592l-.906-.402c-.642-.285-.962-.428-1.288-.459a2 2 0 0 0-.919.128c-.305.119-.574.343-1.114.793c-.537.447-.805.67-1.133.79a2.16 2.16 0 0 1-.981.101c-.346-.05-.61-.192-1.14-.475c-1.645-.88-2.553-1.787-3.433-3.433c-.283-.53-.424-.794-.475-1.14a2.16 2.16 0 0 1 .1-.98c.12-.329.344-.597.791-1.134c.45-.54.675-.809.793-1.114c.114-.292.158-.607.128-.919c-.03-.326-.173-.646-.459-1.288Z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.3 0-4.95 1.025-5.975S5.7 4 9 4h1c3.3 0 4.95 0 5.975 1.025S17 7.7 17 11v2c0 3.3 0 4.95 1.025 5.975S13.3 20 10 20H9c-3.3 0-4.95 0-5.975-1.025S2 16.3 2 13z"/><path stroke-linecap="round" d="m17 8.906l.126-.104c2.116-1.746 3.174-2.619 4.024-2.197c.85.421.85 1.819.85 4.613v1.564c0 2.794 0 4.192-.85 4.613s-1.908-.451-4.024-2.197L17 15.094"/><circle cx="11.5" cy="9.5" r="1.5"/></g></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M10 12c0 1.1-.9 2-2 2s-2-.9-2-2s.9-2 2-2s2 .9 2 2m4 0c0 1.1-.9 2-2 2s-2-.9-2-2s.9-2 2-2s2 .9 2 2m4 0c0 1.1-.9 2-2 2s-2-.9-2-2s.9-2 2-2s2 .9 2 2"/></svg>
+                </div>
+            </div>
+
+            <div class="chat-body-area">
+                <div class="chat-messages ">
+                    <div class="d-flex w-100">
+                         <div class="message-bubble-received">Hi!</div>
+                    </div>
+                    <div class="d-flex w-100">
+                         <div class="message-bubble-received">Hi!</div>
+                    </div>
+
+                    <div class="d-flex w-100 justify-content-end">
+                        <div class="message-bubble-sent">Hello!</div>
+                    </div>
+                
+
+                    <div class="d-flex w-100 justify-content-end">
+                        <div class="message-bubble-sent mt-4">Hi fen</div>
+                    </div>
+                    <div class="d-flex w-100 justify-content-end">
+                        <div class="message-bubble-sent">...</div>
+                    </div>
+                    <div class="d-flex w-100 justify-content-end">
+                        <div class="message-bubble-sent">Nay có học không anh ?</div>
+                    </div>
+
+                    <div class="d-flex w-100">
+                         <div class="message-bubble-received mt-4">Nay nghỉ em nhé</div>
+                    </div>
+                    <div class="d-flex w-100">
+                         <div class="message-bubble-received">Không có bài tập</div>
+                    </div>
+                    <div class="d-flex w-100">
+                         <div class="message-bubble-received">Sang tuần học js nhé</div>
+                    </div>
+                    <div class="d-flex w-100">
+                         <div class="message-bubble-received">Ôn lại bài cũ nhé</div>
+                    </div>
+
+                    <div class="d-flex w-100 justify-content-end">
+                        <div class="message-bubble-sent">Ốke sếpp</div>
+                    </div>
+
+                    <div class="d-flex w-100">
+                         <div class="message-bubble-received">Ok em</div>
+                    </div>
+                    <div class="d-flex w-100">
+                         <div class="message-bubble-received">Ok em</div>
+                    </div>
+                    <div class="d-flex w-100">
+                         <div class="message-bubble-received">Ok em</div>
+                    </div>
+                    <div class="d-flex w-100">
+                         <div class="message-bubble-received">Ok em</div>
+                    </div>
+                    <div class="d-flex w-100">
+                         <div class="message-bubble-received">Ok em</div>
+                    </div>
+                </div>
+           </div> 
+            <div class="p-3 border-top flex-shrink-0 bg-white">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="d-flex gap-2 text-secondary fs-5 icon-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="m3 16l4.47-4.47a1.81 1.81 0 0 1 2.56 0L14 15.5m1.5 1.5L14 15.5m7 .5l-2.47-2.47a1.81 1.81 0 0 0-2.56 0L14 15.5M15.5 8a.5.5 0 0 0 0-1m0 1a.5.5 0 0 1 0-1m0 1V7"/><path d="M3.698 19.747C2.5 18.345 2.5 16.23 2.5 12s0-6.345 1.198-7.747q.256-.3.555-.555C5.655 2.5 7.77 2.5 12 2.5s6.345 0 7.747 1.198q.3.256.555.555C21.5 5.655 21.5 7.77 21.5 12s0 6.345-1.198 7.747q-.256.3-.555.555C18.345 21.5 16.23 21.5 12 21.5s-6.345 0-7.747-1.198q-.3-.256-.555-.555"/></g></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor"><path stroke-width="1.5" d="M2 8.57c0-1.197.482-1.93 1.48-2.486l4.11-2.287C9.743 2.6 10.82 2 12 2s2.257.6 4.41 1.797l4.11 2.287C21.517 6.64 22 7.373 22 8.57c0 .324 0 .487-.035.62c-.186.7-.821.811-1.434.811H3.469c-.613 0-1.247-.11-1.434-.811C2 9.056 2 8.893 2 8.569Z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.996 7h.009"/><path stroke-width="1.5" d="M4 10v8.5M8 10v8.5m8-8.5v8.5m4-8.5v8.5m-1 0H5a3 3 0 0 0-3 3a.5.5 0 0 0 .5.5h19a.5.5 0 0 0 .5-.5a3 3 0 0 0-3-3Z"/></g></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21a9 9 0 1 0 0-18a9 9 0 0 0 0 18zm-4.5-5.5a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1zm9 0a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1zM9.5 14s.5 2 2.5 2s2.5-2 2.5-2"/></svg>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nhập tin nhắn...">   
+                    <div class="d-flex gap-2 fs-5 icon-sm">                       
+                        <span class="icon-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2 12.5a2 2 0 0 1 2-2a3 3 0 0 1 3 3v4a3 3 0 0 1-3 3a2 2 0 0 1-2-2zm13.479-4.694l-.267.86c-.218.705-.327 1.057-.243 1.336a1 1 0 0 0 .42.547c.251.158.63.158 1.39.158h.404c2.57 0 3.855 0 4.462.76q.104.131.185.277c.467.848-.064 1.991-1.126 4.277c-.974 2.098-1.462 3.147-2.366 3.764q-.132.09-.27.17c-.952.545-2.132.545-4.492.545h-.511c-2.86 0-4.289 0-5.177-.86C7 18.779 7 17.394 7 14.624v-.974c0-1.455 0-2.183.258-2.85c.259-.666.753-1.213 1.743-2.309l4.091-4.53c.103-.114.154-.17.2-.21a1.033 1.033 0 0 1 1.442.091c.04.045.083.108.17.234c.135.196.202.294.261.392c.528.871.687 1.906.446 2.89c-.027.109-.062.222-.132.448"/></svg>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        
+        </div>
+</div>
+
+<script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
