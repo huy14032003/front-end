@@ -54,9 +54,10 @@
             padding: 15px;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end; /* Đẩy tin nhắn xuống cuối */
+            
             background-color: #fff; /* Nền trắng cho khu vực tin nhắn */
         }
+
         
         /* --- Bong bóng tin nhắn --- */
         .message-bubble-sent {
@@ -95,6 +96,7 @@
             
             <div class="p-3 flex-shrink-0">
                 <h1 class="h5 fw-bold text-dark">MESSENGER</h1>
+
             </div>
 
             <div class="p-3 pt-0 flex-shrink-0">
@@ -110,7 +112,6 @@
                 <a href="#" class="text-decoration-none text-primary fw-bold">Tất cả</a>
                 <a href="#" class="text-decoration-none text-secondary">Chưa đọc</a>
                 <a href="#" class="text-decoration-none text-secondary">Cộng đồng</a>
-                <a href="#" class="text-decoration-none text-secondary">OK</a>
             </div>
 
             <div class="list-group list-group-flush flex-grow-1 overflow-auto">
@@ -126,31 +127,6 @@
                         </div>
                     </div>
                 </a>
-                
-                <a href="#" class="list-group-item list-group-item-action contact-item p-3">
-                    <div class="d-flex w-100 align-items-center">
-                        <div class="me-3 flex-shrink-0">
-                            <span class="rounded-circle d-block text-center bg-secondary text-white" style="width: 40px; height: 40px; line-height: 40px;">H</span>
-                        </div>
-                        <div class="flex-grow-1">
-                            <h6 class="mb-0 fw-bold">Tran Quang Huy</h6>
-                            <small class="text-truncate d-block text-secondary">Gửi file chưa?</small>
-                        </div>
-                    </div>
-                </a>
-                
-                <a href="#" class="list-group-item list-group-item-action contact-item p-3">
-                    <div class="d-flex w-100 align-items-center">
-                        <div class="me-3 flex-shrink-0">
-                            <span class="rounded-circle d-block text-center bg-success text-white" style="width: 40px; height: 40px; line-height: 40px;">T</span>
-                        </div>
-                        <div class="flex-grow-1">
-                            <h6 class="mb-0 fw-bold">Trần Khánh Linh</h6>
-                            <small class="text-truncate d-block text-secondary">Em đang làm mà?</small>
-                        </div>
-                    </div>
-                </a>
-                
             </div>
 
         </div> 
@@ -162,13 +138,12 @@
                 <div class="d-flex gap-3 text-secondary fs-5 icon-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="m9.159 5.712l-.403-.906c-.263-.592-.395-.888-.592-1.115a2 2 0 0 0-.928-.603C6.949 3 6.625 3 5.976 3c-.948 0-1.422 0-1.82.182a2.12 2.12 0 0 0-1.061 1.169c-.143.413-.102.838-.02 1.689q1.31 13.575 14.886 14.885c.85.082 1.275.123 1.689-.02a2.12 2.12 0 0 0 1.168-1.06c.182-.399.182-.873.182-1.821c0-.649 0-.973-.088-1.26a2 2 0 0 0-.603-.928c-.226-.197-.523-.328-1.115-.592l-.906-.402c-.642-.285-.962-.428-1.288-.459a2 2 0 0 0-.919.128c-.305.119-.574.343-1.114.793c-.537.447-.805.67-1.133.79a2.16 2.16 0 0 1-.981.101c-.346-.05-.61-.192-1.14-.475c-1.645-.88-2.553-1.787-3.433-3.433c-.283-.53-.424-.794-.475-1.14a2.16 2.16 0 0 1 .1-.98c.12-.329.344-.597.791-1.134c.45-.54.675-.809.793-1.114c.114-.292.158-.607.128-.919c-.03-.326-.173-.646-.459-1.288Z"/></svg>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.3 0-4.95 1.025-5.975S5.7 4 9 4h1c3.3 0 4.95 0 5.975 1.025S17 7.7 17 11v2c0 3.3 0 4.95 1.025 5.975S13.3 20 10 20H9c-3.3 0-4.95 0-5.975-1.025S2 16.3 2 13z"/><path stroke-linecap="round" d="m17 8.906l.126-.104c2.116-1.746 3.174-2.619 4.024-2.197c.85.421.85 1.819.85 4.613v1.564c0 2.794 0 4.192-.85 4.613s-1.908-.451-4.024-2.197L17 15.094"/><circle cx="11.5" cy="9.5" r="1.5"/></g></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor"><path stroke-width="1.5" d="M2 8.57c0-1.197.482-1.93 1.48-2.486l4.11-2.287C9.743 2.6 10.82 2 12 2s2.257.6 4.41 1.797l4.11 2.287C21.517 6.64 22 7.373 22 8.57c0 .324 0 .487-.035.62c-.186.7-.821.811-1.434.811H3.469c-.613 0-1.247-.11-1.434-.811C2 9.056 2 8.893 2 8.569Z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.996 7h.009"/><path stroke-width="1.5" d="M4 10v8.5M8 10v8.5m8-8.5v8.5m4-8.5v8.5m-1 0H5a3 3 0 0 0-3 3a.5.5 0 0 0 .5.5h19a.5.5 0 0 0 .5-.5a3 3 0 0 0-3-3Z"/></g></svg>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M10 12c0 1.1-.9 2-2 2s-2-.9-2-2s.9-2 2-2s2 .9 2 2m4 0c0 1.1-.9 2-2 2s-2-.9-2-2s.9-2 2-2s2 .9 2 2m4 0c0 1.1-.9 2-2 2s-2-.9-2-2s.9-2 2-2s2 .9 2 2"/></svg>
                 </div>
             </div>
 
             <div class="chat-body-area">
-                <div class="chat-messages">
+                <div class="chat-messages ">
                     <div class="d-flex w-100">
                          <div class="message-bubble-received">Hi!</div>
                     </div>
@@ -211,8 +186,20 @@
                     <div class="d-flex w-100">
                          <div class="message-bubble-received">Ok em</div>
                     </div>
+                    <div class="d-flex w-100">
+                         <div class="message-bubble-received">Ok em</div>
+                    </div>
+                    <div class="d-flex w-100">
+                         <div class="message-bubble-received">Ok em</div>
+                    </div>
+                    <div class="d-flex w-100">
+                         <div class="message-bubble-received">Ok em</div>
+                    </div>
+                    <div class="d-flex w-100">
+                         <div class="message-bubble-received">Ok em</div>
+                    </div>
                 </div>
-            
+           </div> 
             <div class="p-3 border-top flex-shrink-0 bg-white">
                 <div class="d-flex align-items-center gap-3">
                     <div class="d-flex gap-2 text-secondary fs-5 icon-sm">
@@ -220,7 +207,6 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor"><path stroke-width="1.5" d="M2 8.57c0-1.197.482-1.93 1.48-2.486l4.11-2.287C9.743 2.6 10.82 2 12 2s2.257.6 4.41 1.797l4.11 2.287C21.517 6.64 22 7.373 22 8.57c0 .324 0 .487-.035.62c-.186.7-.821.811-1.434.811H3.469c-.613 0-1.247-.11-1.434-.811C2 9.056 2 8.893 2 8.569Z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.996 7h.009"/><path stroke-width="1.5" d="M4 10v8.5M8 10v8.5m8-8.5v8.5m4-8.5v8.5m-1 0H5a3 3 0 0 0-3 3a.5.5 0 0 0 .5.5h19a.5.5 0 0 0 .5-.5a3 3 0 0 0-3-3Z"/></g></svg>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21a9 9 0 1 0 0-18a9 9 0 0 0 0 18zm-4.5-5.5a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1zm9 0a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1zM9.5 14s.5 2 2.5 2s2.5-2 2.5-2"/></svg>
                     </div>
-
                     <input type="text" class="form-control" placeholder="Nhập tin nhắn...">   
                     <div class="d-flex gap-2 fs-5 icon-sm">                       
                         <span class="icon-primary">
@@ -230,7 +216,7 @@
                 </div>
             </div>
 
-        </div>
+        
         </div>
 </div>
 
